@@ -1,0 +1,2 @@
+parameters:
+    robo.qnck.tables.qnck_table: '%core.table_prefix%robo_qnck_table'

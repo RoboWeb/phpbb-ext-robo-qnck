@@ -1,0 +1,44 @@
+imports:
+    - { resource: parameters.yml }
+
+services:
+    robo.qnck.controller.acp:
+        class: robo\qnck\controller\acp_controller
+        arguments:
+            - '@config'
+            - '@language'
+            - '@log'
+            - '@request'
+            - '@template'
+            - '@user'
+
+    robo.qnck.controller.ucp:
+        class: robo\qnck\controller\ucp_controller
+        arguments:
+            - '@dbal.conn'
+            - '@language'
+            - '@request'
+            - '@template'
+            - '@user'
+
+    robo.qnck.service:
+        class: robo\qnck\service
+        arguments:
+            - '@user'
+            - '%robo.qnck.tables.qnck_table%'
+
+    robo.qnck.listener:
+        class: robo\qnck\event\main_listener
+        arguments:
+            - '@language'
+        tags:
+            - { name: event.listener }
+
+    robo.qnck.notification.type.sample:
+        class: robo\qnck\notification\type\sample
+        shared: false # service MUST not be shared for this to work!
+        parent: notification.type.base
+        calls:
+            - [set_controller_helper, ['@controller.helper']]
+        tags:
+            - { name: notification.type }
