@@ -20,15 +20,6 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
  */
 class main_listener implements EventSubscriberInterface
 {
-	public static function getSubscribedEvents()
-	{
-		return array(
-			'core.user_setup'							=> 'load_language_on_setup',
-	'core.display_forums_modify_template_vars'	=> 'display_forums_modify_template_vars',
-			'core.permissions'	=> 'add_permissions',
-		);
-	}
-
 	/* @var \phpbb\language\language */
 	protected $language;
 
@@ -65,9 +56,9 @@ class main_listener implements EventSubscriberInterface
 	 */
 	public function display_forums_modify_template_vars($event)
 	{
-		$forum_row = $event['forum_row'];
-		$forum_row['FORUM_NAME'] .= $this->language->lang('QNCK_EVENT');
-		$event['forum_row'] = $forum_row;
+		// $forum_row = $event['forum_row'];
+		// $forum_row['FORUM_NAME'] .= $this->language->lang('QNCK_EVENT');
+		// $event['forum_row'] = $forum_row;
 	}
 
 	/**
@@ -94,5 +85,14 @@ class main_listener implements EventSubscriberInterface
 		$permissions['u_new_robo_qnck'] = array('lang' => 'ACL_U_NEW_ROBO_QNCK', 'cat' => 'post');
 
 		$event['permissions'] = $permissions;
+	}
+
+	public static function getSubscribedEvents()
+	{
+		return array(
+			'core.user_setup'							=> 'load_language_on_setup',
+			'core.display_forums_modify_template_vars'	=> 'display_forums_modify_template_vars',
+			'core.permissions'							=> 'add_permissions',
+		);
 	}
 }

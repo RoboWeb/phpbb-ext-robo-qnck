@@ -27,25 +27,29 @@ class install_ucp_module extends \phpbb\db\migration\migration
 
 	public static function depends_on()
 	{
-		return array('\robo\qnck\migrations\install_sample_schema');
+		return ['\robo\qnck\migrations\install_sample_schema'];
 	}
 
 	public function update_data()
 	{
-		return array(
-			array('module.add', array(
-				'ucp',
-				0,
-				'UCP_QNCK_TITLE'
-			)),
-			array('module.add', array(
-				'ucp',
-				'UCP_QNCK_TITLE',
-				array(
-					'module_basename'	=> '\robo\qnck\ucp\main_module',
-					'modes'				=> array('settings'),
-				),
-			)),
-		);
+		return [
+			[
+				'module.add', [
+					'ucp',
+					0,
+					'UCP_QNCK_TITLE'
+				]
+			],
+			[
+				'module.add', [
+					'ucp',
+					'UCP_QNCK_TITLE',
+					[
+						'module_basename'	=> '\robo\qnck\ucp\main_module',
+						'modes'				=> ['settings'],
+					],
+				]
+			],
+		];
 	}
 }

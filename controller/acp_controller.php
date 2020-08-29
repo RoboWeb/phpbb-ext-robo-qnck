@@ -86,6 +86,7 @@ class acp_controller
 			{
 				// Set the options the user configured
 				$this->config->set('robo_qnck_goodbye', $this->request->variable('robo_qnck_goodbye', 0));
+				$this->config->set('robo_qnck_enable', $this->request->variable('robo_qnck_enable', 0));
 
 				// Add option settings change action to the admin log
 				$this->log->add('admin', $this->user->data['user_id'], $this->user->ip, 'LOG_ACP_QNCK_SETTINGS');
@@ -106,6 +107,7 @@ class acp_controller
 			'U_ACTION'		=> $this->u_action,
 
 			'ROBO_QNCK_GOODBYE'	=> (bool) $this->config['robo_qnck_goodbye'],
+			'ROBO_QNCK_ENABLE'	=> (bool) $this->config['robo_qnck_enable'],
 		));
 	}
 

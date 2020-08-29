@@ -49,8 +49,8 @@ class install_sample_data extends \phpbb\db\migration\migration
 	{
 		return array(
 			// Add new config table settings
-			array('config.add', array('robo_qnck_sample_int', 0)),
-			array('config.add', array('robo_qnck_sample_str', '')),
+			array('config.add', array('robo_qnck_enable', 1)),
+			array('config.add', array('robo_qnck_sample_str', 'strtest')),
 
 			// Add a new config_text table setting
 			array('config_text.add', array('robo_qnck_sample', '')),

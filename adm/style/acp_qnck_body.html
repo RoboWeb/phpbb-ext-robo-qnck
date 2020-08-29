@@ -18,6 +18,14 @@
 			<dd><label><input type="radio" class="radio" name="robo_qnck_goodbye" value="1"{% if ROBO_QNCK_GOODBYE %} checked="checked"{% endif %} /> {{ lang('YES') }}</label>
 				<label><input type="radio" class="radio" name="robo_qnck_goodbye" value="0"{% if not ROBO_QNCK_GOODBYE %} checked="checked"{% endif %} /> {{ lang('NO') }}</label></dd>
 		</dl>
+		<dl>
+			<dt>
+				<label for="robo_qnck_enable">{{ lang('ACP_QNCK_ENABLE') ~ lang('COLON') }}</label>
+				<p>{{ lang('ACP_QNCK_ENABLE_EXPLAIN') ~ lang('COLON') }}</p>
+			</dt>
+			<dd><label><input type="radio" class="radio" name="robo_qnck_enable" value="1"{% if ROBO_QNCK_ENABLE %} checked="checked"{% endif %} /> {{ lang('YES') }}</label>
+				<label><input type="radio" class="radio" name="robo_qnck_enable" value="0"{% if not ROBO_QNCK_ENABLE %} checked="checked"{% endif %} /> {{ lang('NO') }}</label></dd>
+		</dl>
 	</fieldset>
 
 	<fieldset class="submit-buttons">
